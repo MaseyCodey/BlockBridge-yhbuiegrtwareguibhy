@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A secure two-step community verification form for Minecraft players."
+    />
+    <meta name="theme-color" content="#100052" />
+    <title>BlockBridge — Player Verification</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#verification">Skip to verification form</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="BlockBridge home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>BLOCK<span>BRIDGE</span></span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#safety">Safety</a>
+      </nav>
+
+      <a class="button button-small button-ghost" href="#verification">Verify now</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true"></div>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
+        <div class="hero-content">
+          <div class="eyebrow"><span></span> COMMUNITY ACCESS PORTAL</div>
+          <h1 id="hero-title">Your next world<br />starts <em>here.</em></h1>
+          <p>
+            Match your Minecraft and Discord identities so our moderation team
+            can review your access request.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#verification">
+              Start verification
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="text-link" href="#how-it-works">See how it works</a>
+          </div>
+          <div class="trust-line">
+            <span class="shield-icon" aria-hidden="true">✓</span>
+            Never share your password or security code here.
+          </div>
+        </div>
+
+        <div class="hero-status" aria-label="Verification summary">
+          <div>
+            <span class="status-dot"></span>
+            <p><strong>Verification portal</strong><br />Online &amp; ready</p>
+          </div>
+          <div class="status-divider"></div>
+          <div>
+            <span class="status-number">02</span>
+            <p><strong>Two-step match</strong><br />For fewer mistakes</p>
+          </div>
+          <div class="status-divider"></div>
+          <div>
+            <span class="status-icon">↗</span>
+            <p><strong>Moderator review</strong><br />Sent to Discord</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-kicker">FAST. CLEAR. SECURE.</div>
+        <h2 id="how-title">Three details. Two checks.<br />One smooth arrival.</h2>
+
+        <div class="steps-grid">
+          <article>
+            <span class="step-number">01</span>
+            <div class="step-icon" aria-hidden="true">⌨</div>
+            <h3>Enter your details</h3>
+            <p>Share the email tied to your Minecraft account plus both usernames.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div class="step-icon" aria-hidden="true">◎</div>
+            <h3>Confirm the match</h3>
+            <p>Type everything again so typos are caught before submission.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <div class="step-icon" aria-hidden="true">✓</div>
+            <h3>Wait for review</h3>
+            <p>A moderator receives the request in Discord and verifies it manually.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="verification-section" id="verification" aria-labelledby="form-title">
+        <div class="form-shell">
+          <div class="form-intro">
+            <div class="section-kicker">PLAYER VERIFICATION</div>
+            <h2 id="form-title">Connect your identities.</h2>
+            <p>
+              This is a manual community check—not a Microsoft, Mojang, Minecraft,
+              or Discord login. We will never ask for your password or a one-time code.
+            </p>
+
+            <div class="privacy-card" id="safety">
+              <span aria-hidden="true">⌁</span>
+              <div>
+                <strong>Know where your data goes</strong>
+                <p>
+                  Your email and usernames are sent to this community's private
+                  Discord moderation channel for review.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="progress" aria-label="Verification progress">
+              <div class="progress-item is-active" data-progress="1">
+                <span>1</span>
+                <p>Details</p>
+              </div>
+              <div class="progress-track"><span></span></div>
+              <div class="progress-item" data-progress="2">
+                <span>2</span>
+                <p>Confirm</p>
+              </div>
+            </div>
+
+            <form id="verification-form" novalidate>
+              <fieldset class="form-step is-active" data-step="1">
+                <legend>Enter your details</legend>
+                <p class="step-copy">Use the information our moderators should match.</p>
+
+                <label for="email">
+                  Minecraft account email
+                  <span class="help-text">Never enter your password.</span>
+                </label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7" /></svg>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                </div>
+                <p class="field-error" id="email-error"></p>
+
+                <label for="minecraftUsername">Minecraft username</label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h3v3H8zM14 8h3v3h-3zM8 15h8" /></svg>
+                  <input id="minecraftUsername" name="minecraftUsername" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="16" placeholder="BlockBuilder" required />
+                </div>
+                <p class="field-error" id="minecraftUsername-error"></p>
+
+                <label for="discordUsername">Discord username</label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8.5c2.7-1.3 5.3-1.3 8 0M6.5 17c3.7 2 7.3 2 11 0l1-8c-1.5-1-3-1.5-4.5-1.8L13 9h-2L10 7.2C8.5 7.5 7 8 5.5 9l1 8zM9 14h.01M15 14h.01" /></svg>
+                  <input id="discordUsername" name="discordUsername" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="32" placeholder="pixel.pilot" required />
+                </div>
+                <p class="field-error" id="discordUsername-error"></p>
+
+                <button class="button button-primary button-full" type="button" id="continue-button">
+                  Continue to confirmation
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </button>
+              </fieldset>
+
+              <fieldset class="form-step" data-step="2">
+                <legend>Confirm your details</legend>
+                <p class="step-copy">Re-enter each detail. We'll check that everything matches.</p>
+
+                <label for="confirmEmail">Re-enter Minecraft email</label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3zM3 7l9 7 9-7" /></svg>
+                  <input id="confirmEmail" name="confirmEmail" type="email" autocomplete="off" placeholder="Type it again" required />
+                  <span class="match-state" data-match-for="email" aria-hidden="true"></span>
+                </div>
+                <p class="field-error" id="confirmEmail-error"></p>
+
+                <label for="confirmMinecraftUsername">Re-enter Minecraft username</label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM8 8h3v3H8zM14 8h3v3h-3zM8 15h8" /></svg>
+                  <input id="confirmMinecraftUsername" name="confirmMinecraftUsername" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="16" placeholder="Type it again" required />
+                  <span class="match-state" data-match-for="minecraftUsername" aria-hidden="true"></span>
+                </div>
+                <p class="field-error" id="confirmMinecraftUsername-error"></p>
+
+                <label for="confirmDiscordUsername">Re-enter Discord username</label>
+                <div class="input-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8.5c2.7-1.3 5.3-1.3 8 0M6.5 17c3.7 2 7.3 2 11 0l1-8c-1.5-1-3-1.5-4.5-1.8L13 9h-2L10 7.2C8.5 7.5 7 8 5.5 9l1 8zM9 14h.01M15 14h.01" /></svg>
+                  <input id="confirmDiscordUsername" name="confirmDiscordUsername" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" maxlength="32" placeholder="Type it again" required />
+                  <span class="match-state" data-match-for="discordUsername" aria-hidden="true"></span>
+                </div>
+                <p class="field-error" id="confirmDiscordUsername-error"></p>
+
+                <label class="consent-row" for="consent">
+                  <input id="consent" name="consent" type="checkbox" required />
+                  <span>I agree to share these details with community moderators for verification.</span>
+                </label>
+                <p class="field-error" id="consent-error"></p>
+
+                <div class="form-actions">
+                  <button class="button button-ghost" type="button" id="back-button">Back</button>
+                  <button class="button button-primary" type="submit" id="submit-button">
+                    <span>Send for review</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </button>
+                </div>
+
+                <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <input type="hidden" name="startedAt" id="startedAt" />
+              </fieldset>
+
+              <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+            </form>
+
+            <div class="success-panel" id="success-panel" hidden>
+              <div class="success-icon" aria-hidden="true">✓</div>
+              <div class="section-kicker">REQUEST RECEIVED</div>
+              <h3>You're in the queue.</h3>
+              <p>Your matching details were sent to the moderation team. Watch Discord for the next step.</p>
+              <button class="button button-ghost" type="button" id="reset-button">Submit another request</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>BLOCK<span>BRIDGE</span></span>
+      </a>
+      <p>Community verification portal · Not affiliated with Microsoft, Mojang, Minecraft, or Discord.</p>
+      <a href="#safety">Privacy &amp; safety</a>
+    </footer>
+  </body>
+</html>
